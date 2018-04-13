@@ -16,8 +16,9 @@ import javax.ws.rs.POST;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
-import utn.frd.borbotones.entities.Cliente;
+import utn.frd.borbotones.entities.Cuenta;
 import utn.frd.borbotones.entities.Movimiento;
+import utn.frd.borbotones.sessions.CuentaFacade;
 import utn.frd.borbotones.sessions.MovimientoFacade;
 
 /**
@@ -28,6 +29,8 @@ import utn.frd.borbotones.sessions.MovimientoFacade;
 public class MovimientosRest {
     @EJB 
     private MovimientoFacade ejbMovimientoFacade;
+    @EJB
+    private CuentaFacade ejbCuentaFacade;
     
     @GET
     @Path("/{id_c}")
@@ -37,8 +40,10 @@ public class MovimientosRest {
     }
     
     @POST
+    @Path("/{id_c}")
     @Consumes({MediaType.APPLICATION_JSON})
-    public void create(Movimiento movimiento){
+    public void create(Movimiento movimiento,@PathParam("id_c")int id){
+        movimiento.setCuenta(ejbCuentaFacade.find(id));
         ejbMovimientoFacade.create(movimiento);
     }
     
