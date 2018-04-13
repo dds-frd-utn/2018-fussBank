@@ -5,6 +5,28 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
+        
         <h1>Banco de los borbotones!</h1>
+        <h2>Forma de uso</h2>
+        <h3>Descripcion de estructura y metodos</h3>
+        <p>El servicio está dividido en 3 "sub servicios"</p><br>
+        <ul>
+            <li>ClienteRest URL /cliente</li>
+            <li>CuentaRest URL /cliente/{id_cliente}/cuentas</li>
+            <li>MovimientosRest URL /cliente/{id_cliente}/cuentas/movimientos/{id_cuenta}</li>
+        </ul><br>
+        <p>Cada servicio consta de los siguientes metodos</p>
+        <ul>
+            <li>ClienteRest @GET,@POST,@PUT,@DELETE</li>
+            <li>CuentaRest @GET,@POST,@PUT,@DELETE</li>
+            <li>MovimientosRest @GET, @POST</li>
+        </ul><br>
+        <h3>Creacion de un cliente:</h3>
+        <p>JSON = {"cuil":<i>bigint</i>,"nombre":<i>string</i>}</p><br>
+        <h3>Creacion de una cuenta:</h3>
+        <p>JSON = TODO</p><br>
+        <h3>Creacion de un movimiento:</h3>
+        <p>JSON = {"estado":<i>int</i>,"id":<i>int</i>,"importe": <i>long</i>,"tipo":<i>int</i></p><br>       
+        
     </body>
 </html>
