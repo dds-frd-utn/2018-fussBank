@@ -5,6 +5,7 @@
  */
 package utn.frd.borbotones.rest.services;
 
+import java.util.Date;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ejb.EJB;
@@ -16,7 +17,6 @@ import javax.ws.rs.POST;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.PUT;
 import javax.ws.rs.core.MediaType;
-import utn.frd.borbotones.entities.Cuenta;
 import utn.frd.borbotones.entities.Movimiento;
 import utn.frd.borbotones.sessions.CuentaFacade;
 import utn.frd.borbotones.sessions.MovimientoFacade;
@@ -44,6 +44,8 @@ public class MovimientosRest {
     @Consumes({MediaType.APPLICATION_JSON})
     public void create(Movimiento movimiento,@PathParam("id_c")int id){
         movimiento.setCuenta(ejbCuentaFacade.find(id));
+        Date creado = new Date();
+        movimiento.setCreado(creado);
         ejbMovimientoFacade.create(movimiento);
     }
     
