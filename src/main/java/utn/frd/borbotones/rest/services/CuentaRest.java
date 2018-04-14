@@ -41,7 +41,6 @@ public class CuentaRest {
     public void create(@PathParam("id") long id, Cuenta cuenta){
         try{
             cuenta.setCliente( ejbClienteFacade.find(id) );
-
             ejbCuentaFacade.create(cuenta);
         }catch(Exception e){
             System.out.println(e);
@@ -54,6 +53,16 @@ public class CuentaRest {
     @Produces({MediaType.APPLICATION_JSON})
     public Cuenta findById(@PathParam("id_c")int id){
         return ejbCuentaFacade.find(id);
+    }
+    
+    @GET
+    @Path("/{id_c}/saldo")
+    @Produces({MediaType.APPLICATION_JSON})
+    public float getSaldos(@PathParam("id_c") int id){
+        Cuenta cuenta = ejbCuentaFacade.find(id);
+        float saldo = cuenta.getSaldo();
+        return saldo;
+        
     }
     
 }
