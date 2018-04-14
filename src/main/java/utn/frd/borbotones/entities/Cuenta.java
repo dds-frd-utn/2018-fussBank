@@ -8,12 +8,15 @@ package utn.frd.borbotones.entities;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import static javax.persistence.GenerationType.SEQUENCE;
+import static javax.persistence.GenerationType.TABLE;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -43,7 +46,9 @@ public class Cuenta implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=TABLE, generator="CUST_GEN")
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotNull    
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
@@ -51,17 +56,17 @@ public class Cuenta implements Serializable {
     @NotNull
     @Column(name = "numero")
     private long numero;
-    //@Basic(optional = false)
-    //@NotNull
+    @Basic(optional = false)
+    @NotNull
     @Column(name = "apertura")
     @Temporal(TemporalType.TIMESTAMP)
     private Date apertura;
     @NotNull
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name="id_cliente")
     private Cliente cliente;  
-    @OneToMany
-    private List<Movimiento> movimientos;
+    @OneToMany(targetEntity=Movimiento.class,mappedBy="cuenta")
+    private Set<Movimiento> movimientos;
     
     public Cuenta() {
     }
@@ -78,11 +83,11 @@ public class Cuenta implements Serializable {
         
     }
     
-    public Cuenta(long numero, int id_cliente){
+    public Cuenta(long numero){
         this.numero=numero;
                         
     }
-    /**modifico el constructor? cambio cliente por id cliente?**/
+    
     
     public Integer getId() {
         return id;
@@ -115,10 +120,30 @@ public class Cuenta implements Serializable {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+   
+    public float getSaldo(){
+        float saldo;
+        saldo = 0;
+        for(Movimiento element : movimientos){
+            if(element.getTipo() == 0){
+                saldo += element.getImporte();
+            }
+            else{
+                saldo -= element.getImporte();
+            }
+            
+        }
+        return saldo;
+    }
     
-    public List<Movimiento> getMovimientos(){
+    public Set<Movimiento> getMovimientos(){
         return movimientos;
     }
+    
+    public void setMovimientos(Set<Movimiento> movimientos){
+        this.movimientos = movimientos;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 0;
