@@ -67,8 +67,7 @@ public class Movimiento implements Serializable {
     @NotNull
     @Column(name = "importe")
     private double importe;
-    @NotNull
-     
+    @NotNull     
     @ManyToOne
     @JoinColumn(name = "id_cuenta")
     private Cuenta cuenta;
@@ -83,6 +82,12 @@ public class Movimiento implements Serializable {
     public Movimiento(Integer id, Date creado, int tipo, int estado, double importe) {
         this.id = id;
         this.creado = creado;
+        this.tipo = tipo;
+        this.estado = estado;
+        this.importe = importe;
+        }
+    
+    public Movimiento(int tipo, int estado, double importe) {
         this.tipo = tipo;
         this.estado = estado;
         this.importe = importe;
