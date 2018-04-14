@@ -16,6 +16,7 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import utn.frd.borbotones.entities.Cuenta;
+import utn.frd.borbotones.entities.Saldo;
 import utn.frd.borbotones.sessions.ClienteFacade;
 import utn.frd.borbotones.sessions.CuentaFacade;
 
@@ -44,8 +45,6 @@ public class CuentaRest {
         Date creado = new Date();
         cuenta.setApertura(creado);
         ejbCuentaFacade.create(cuenta);       
-      
-            
     }
     
     @GET
@@ -58,10 +57,12 @@ public class CuentaRest {
     @GET
     @Path("/{id_c}/saldo")
     @Produces({MediaType.APPLICATION_JSON})
-    public float getSaldos(@PathParam("id_c") int id){
+    public Saldo getSaldos(@PathParam("id_c") int id){
         Cuenta cuenta = ejbCuentaFacade.find(id);
         float saldo = cuenta.getSaldo();
-        return saldo;
+        Saldo saldoHld = new Saldo();
+        saldoHld.setSaldo(saldo);
+        return saldoHld;
         
     }
     

@@ -46,7 +46,7 @@ public class Cuenta implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy=TABLE, generator="CUST_GEN")
+    @GeneratedValue(strategy=TABLE)
     //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @NotNull    
     @Basic(optional = false)
@@ -83,8 +83,9 @@ public class Cuenta implements Serializable {
         
     }
     
-    public Cuenta(long numero){
+    public Cuenta(long numero,Integer id){
         this.numero=numero;
+        this.id = id;
                         
     }
     
@@ -125,7 +126,7 @@ public class Cuenta implements Serializable {
         float saldo;
         saldo = 0;
         for(Movimiento element : movimientos){
-            if(element.getTipo() == 0){
+            if(element.getTipo() == 1){
                 saldo += element.getImporte();
             }
             else{
