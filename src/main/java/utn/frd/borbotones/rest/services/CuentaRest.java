@@ -5,6 +5,7 @@
  */
 package utn.frd.borbotones.rest.services;
 
+import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ws.rs.Consumes;
@@ -39,12 +40,11 @@ public class CuentaRest {
     @POST
     @Consumes({MediaType.APPLICATION_JSON}) 
     public void create(@PathParam("id") long id, Cuenta cuenta){
-        try{
-            cuenta.setCliente( ejbClienteFacade.find(id) );
-            ejbCuentaFacade.create(cuenta);
-        }catch(Exception e){
-            System.out.println(e);
-        }
+        cuenta.setCliente( ejbClienteFacade.find(id) );
+        Date creado = new Date();
+        cuenta.setApertura(creado);
+        ejbCuentaFacade.create(cuenta);       
+      
             
     }
     
