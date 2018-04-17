@@ -9,8 +9,6 @@ import javax.ws.rs.PathParam;
 import javax.ejb.EJB;
 import utn.frd.borbotones.entities.Cliente;
 import utn.frd.borbotones.sessions.ClienteFacade;
-import utn.frd.borbotones.entities.Cuenta;
-import utn.frd.borbotones.sessions.CuentaFacade;
 import java.util.List;
 import javax.ws.rs.Produces;
 import javax.ws.rs.Consumes;

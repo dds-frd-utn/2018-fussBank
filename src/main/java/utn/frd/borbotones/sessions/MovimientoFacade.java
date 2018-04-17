@@ -37,4 +37,10 @@ public class MovimientoFacade extends AbstractFacade<Movimiento> {
                 .getResultList();
     }
     
+    public List<Movimiento> findByTipo(long id){
+        return em.createNamedQuery("Movimiento.findByTipo",Movimiento.class)
+                .setParameter("tipo",id)
+                .getResultList();
+    }
+    
 }

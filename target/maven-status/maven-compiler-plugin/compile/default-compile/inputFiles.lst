@@ -1,4 +1,5 @@
 /home/agustin/NetBeansProjects/borbotones/src/main/java/utn/frd/borbotones/rest/services/ClienteRest.java
+/home/agustin/NetBeansProjects/borbotones/src/main/java/utn/frd/borbotones/entities/Saldo.java
 /home/agustin/NetBeansProjects/borbotones/src/main/java/utn/frd/borbotones/entities/TipoMovimiento.java
 /home/agustin/NetBeansProjects/borbotones/src/main/java/utn/frd/borbotones/entities/Cuenta.java
 /home/agustin/NetBeansProjects/borbotones/src/main/java/utn/frd/borbotones/entities/EstadoMovimiento.java
@@ -11,6 +12,7 @@
 /home/agustin/NetBeansProjects/borbotones/src/main/java/utn/frd/borbotones/rest/services/CuentaRest.java
 /home/agustin/NetBeansProjects/borbotones/src/main/java/utn/frd/borbotones/sessions/EstadoMovimientoFacade.java
 /home/agustin/NetBeansProjects/borbotones/src/main/java/utn/frd/borbotones/sessions/MovimientoFacade.java
+/home/agustin/NetBeansProjects/borbotones/src/main/java/utn/frd/borbotones/rest/services/EstadoMovimientoRest.java
 /home/agustin/NetBeansProjects/borbotones/src/main/java/utn/frd/borbotones/entities/Contacto.java
 /home/agustin/NetBeansProjects/borbotones/src/main/java/utn/frd/borbotones/rest/services/ApplicationConfig.java
 /home/agustin/NetBeansProjects/borbotones/src/main/java/utn/frd/borbotones/entities/Movimiento.java
