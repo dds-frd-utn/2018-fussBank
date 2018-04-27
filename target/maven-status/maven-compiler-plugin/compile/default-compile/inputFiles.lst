@@ -1,6 +1,7 @@
 /home/agustin/NetBeansProjects/borbotones/src/main/java/utn/frd/borbotones/rest/services/ClienteRest.java
 /home/agustin/NetBeansProjects/borbotones/src/main/java/utn/frd/borbotones/entities/Saldo.java
 /home/agustin/NetBeansProjects/borbotones/src/main/java/utn/frd/borbotones/entities/TipoMovimiento.java
+/home/agustin/NetBeansProjects/borbotones/src/main/java/utn/frd/borbotones/rest/services/NewCrossOriginResourceSharingFilter.java
 /home/agustin/NetBeansProjects/borbotones/src/main/java/utn/frd/borbotones/entities/Cuenta.java
 /home/agustin/NetBeansProjects/borbotones/src/main/java/utn/frd/borbotones/entities/EstadoMovimiento.java
 /home/agustin/NetBeansProjects/borbotones/src/main/java/utn/frd/borbotones/sessions/ContactoFacade.java
