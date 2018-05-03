@@ -12,10 +12,12 @@ utn/frd/borbotones/entities/TipoMovimiento_.class
 utn/frd/borbotones/entities/Movimiento_.class
 utn/frd/borbotones/sessions/ClienteFacade.class
 utn/frd/borbotones/sessions/ContactoFacade.class
+utn/frd/borbotones/rest/services/NewCrossOriginResourceSharingFilter.class
 utn/frd/borbotones/rest/services/ApplicationConfig.class
 utn/frd/borbotones/entities/Movimiento.class
 utn/frd/borbotones/sessions/CuentaFacade.class
 utn/frd/borbotones/rest/services/MovimientosRest.class
+utn/frd/borbotones/rest/services/EstadoMovimientoRest.class
 utn/frd/borbotones/rest/services/ClienteRest.class
 utn/frd/borbotones/sessions/EstadoMovimientoFacade.class
 utn/frd/borbotones/entities/EstadoMovimiento.class
