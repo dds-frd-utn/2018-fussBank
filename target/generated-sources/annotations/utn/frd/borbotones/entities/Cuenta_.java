@@ -8,7 +8,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 import utn.frd.borbotones.entities.Cliente;
 import utn.frd.borbotones.entities.Movimiento;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2018-05-01T02:19:12")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2018-05-04T11:21:35")
 @StaticMetamodel(Cuenta.class)
 public class Cuenta_ { 
 

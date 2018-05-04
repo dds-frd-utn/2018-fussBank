@@ -51,7 +51,7 @@ public class Cliente implements Serializable {
     @NotNull
     @Column(name = "cuil")
     private int cuil;
-    @OneToMany
+    @OneToMany(targetEntity=Cuenta.class, mappedBy="cliente")
     private Set<Cuenta> cuentas;
 
     public Cliente() {

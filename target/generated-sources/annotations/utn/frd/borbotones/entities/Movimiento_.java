@@ -6,7 +6,7 @@ import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 import utn.frd.borbotones.entities.Cuenta;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2018-05-01T02:19:12")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2018-05-04T11:21:35")
 @StaticMetamodel(Movimiento.class)
 public class Movimiento_ { 
 
