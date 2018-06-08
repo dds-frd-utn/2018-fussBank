@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        
+        <h1>Banco de los borbotones!</h1>
+        <h2>Forma de uso</h2>
+        <h3>Descripcion de estructura y metodos</h3>
+        <p>El servicio está dividido en 4 "sub servicios"</p><br>
+        <ul>
+            <li>ClienteRest URL /cliente</li>
+            <li>CuentaRest URL /cliente/{id_cliente}/cuentas</li>
+            <li>MovimientosRest URL /cliente/{id_cliente}/cuentas/movimientos/{id_cuenta}</li>
+            <li>EstadoMovimientoRest URL /estadosMovimientos</li>
+        </ul><br>
+        <p>Cada servicio consta de los siguientes metodos</p>
+        <ul>
+            <li>ClienteRest @GET,@POST,@PUT,@DELETE</li>
+            <li>CuentaRest @GET,@POST,@PUT,@DELETE</li>
+            <li>MovimientosRest @GET, @POST</li>
+            <li>EstadoMovimientosRest @GET</li>
+        </ul><br>
+        <h3>Caracteristicas extra:</h3>
+        <ul>
+            <li>Se puede consultar el saldo de cada cuenta con GET a /cliente/{id_cliente}/cuentas/{id_cuenta}/saldo</li>
+            <li>Se puede obtener una lista con todos los movimientos en la base de datos con GET a /estadosMovimientos</li>
+            <li>Se puede obtener una lista de los movimientos discriminada por tipo con GET a /estadosMovimientos/{tipo}</li>
+        </ul><br>
+        <h3>Creacion de un cliente:</h3>
+        <p>JSON = {"cuil":<i>bigint</i>,"nombre":<i>string</i>}</p><br>
+        <h3>Creacion de una cuenta:</h3>
+        <p>JSON = {"numero":<i>bigint</i>,"id":<i>int</i>}</p><br>
+        <h3>Creacion de un movimiento:</h3>
+        <p>JSON = {"estado":<i>int</i>,"id":<i>int</i>,"importe": <i>long</i>,"tipo":<i>int</i>}</p><br>       
+        
+    </body>
+</html>

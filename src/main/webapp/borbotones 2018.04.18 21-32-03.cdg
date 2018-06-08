@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="borbotones">
+  <ClassDiagramComponents>
+    <Class name="ClienteRest" package="utn.frd.borbotones.rest.services" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="ejbClienteFacade" type="ClienteFacade" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="findAll" returnType="List&lt;Cliente&gt;" visibility="public"/>
+        <Method name="create" returnType="void" visibility="public">
+          <Argument type="Cliente" name="cliente"/>
+        </Method>
+        <Method name="edit" returnType="void" visibility="public">
+          <Argument type="long" name="id"/>
+          <Argument type="Cliente" name="cliente"/>
+        </Method>
+        <Method name="remove" returnType="void" visibility="public">
+          <Argument type="long" name="id"/>
+        </Method>
+        <Method name="findById" returnType="Cliente" visibility="public">
+          <Argument type="long" name="id"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="EstadoMovimientoRest" package="utn.frd.borbotones.rest.services" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="ejbMovimientoFacade" type="MovimientoFacade" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="findAll" returnType="List&lt;Movimiento&gt;" visibility="public"/>
+        <Method name="findByTipo" returnType="List&lt;Movimiento&gt;" visibility="public">
+          <Argument type="long" name="id"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MovimientosRest" package="utn.frd.borbotones.rest.services" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="ejbMovimientoFacade" type="MovimientoFacade" visibility="private"/>
+        <Field name="ejbCuentaFacade" type="CuentaFacade" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="findById" returnType="List&lt;Movimiento&gt;" visibility="public">
+          <Argument type="long" name="id"/>
+        </Method>
+        <Method name="create" returnType="void" visibility="public">
+          <Argument type="Movimiento" name="movimiento"/>
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="edit" returnType="void" visibility="public">
+          <Argument type="long" name="id"/>
+          <Argument type="Movimiento" name="movimiento"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="CuentaRest" package="utn.frd.borbotones.rest.services" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="ejbCuentaFacade" type="CuentaFacade" visibility="private"/>
+        <Field name="ejbClienteFacade" type="ClienteFacade" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="findByCliente" returnType="List&lt;Cuenta&gt;" visibility="public">
+          <Argument type="long" name="id"/>
+        </Method>
+        <Method name="create" returnType="void" visibility="public">
+          <Argument type="long" name="id"/>
+          <Argument type="Cuenta" name="cuenta"/>
+        </Method>
+        <Method name="findById" returnType="Cuenta" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getSaldos" returnType="Saldo" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ApplicationConfig" package="utn.frd.borbotones.rest.services" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Cuenta" package="utn.frd.borbotones.entities" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="id" type="Integer" visibility="private"/>
+        <Field name="numero" type="long" visibility="private"/>
+        <Field name="apertura" type="Date" visibility="private"/>
+        <Field name="cliente" type="Cliente" visibility="private"/>
+        <Field name="movimientos" type="Set&lt;Movimiento&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="id"/>
+          <Argument type="long" name="numero"/>
+          <Argument type="Date" name="apertura"/>
+          <Argument type="Cliente" name="cliente"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="long" name="numero"/>
+          <Argument type="Integer" name="id"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="Integer" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="getNumero" returnType="long" visibility="public"/>
+        <Method name="setNumero" returnType="void" visibility="public">
+          <Argument type="long" name="numero"/>
+        </Method>
+        <Method name="getApertura" returnType="Date" visibility="public"/>
+        <Method name="setApertura" returnType="void" visibility="public">
+          <Argument type="Date" name="apertura"/>
+        </Method>
+        <Method name="getCuenta" returnType="Cliente" visibility="public"/>
+        <Method name="setCliente" returnType="void" visibility="public">
+          <Argument type="Cliente" name="cliente"/>
+        </Method>
+        <Method name="getSaldo" returnType="float" visibility="public"/>
+        <Method name="getMovimientos" returnType="Set&lt;Movimiento&gt;" visibility="public"/>
+        <Method name="setMovimientos" returnType="void" visibility="public">
+          <Argument type="Set&lt;Movimiento&gt;" name="movimientos"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Movimiento" package="utn.frd.borbotones.entities" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="id" type="Integer" visibility="private"/>
+        <Field name="creado" type="Date" visibility="private"/>
+        <Field name="procesado" type="Date" visibility="private"/>
+        <Field name="tipo" type="int" visibility="private"/>
+        <Field name="estado" type="int" visibility="private"/>
+        <Field name="importe" type="double" visibility="private"/>
+        <Field name="cuenta" type="Cuenta" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="id"/>
+          <Argument type="Date" name="creado"/>
+          <Argument type="int" name="tipo"/>
+          <Argument type="int" name="estado"/>
+          <Argument type="double" name="importe"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="int" name="tipo"/>
+          <Argument type="int" name="estado"/>
+          <Argument type="double" name="importe"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="Integer" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="getCreado" returnType="Date" visibility="public"/>
+        <Method name="setCreado" returnType="void" visibility="public">
+          <Argument type="Date" name="creado"/>
+        </Method>
+        <Method name="getProcesado" returnType="Date" visibility="public"/>
+        <Method name="setProcesado" returnType="void" visibility="public">
+          <Argument type="Date" name="procesado"/>
+        </Method>
+        <Method name="getTipo" returnType="int" visibility="public"/>
+        <Method name="setTipo" returnType="void" visibility="public">
+          <Argument type="int" name="tipo"/>
+        </Method>
+        <Method name="getEstado" returnType="int" visibility="public"/>
+        <Method name="setEstado" returnType="void" visibility="public">
+          <Argument type="int" name="estado"/>
+        </Method>
+        <Method name="getImporte" returnType="double" visibility="public"/>
+        <Method name="setImporte" returnType="void" visibility="public">
+          <Argument type="double" name="importe"/>
+        </Method>
+        <Method name="getMovimiento" returnType="Cuenta" visibility="public"/>
+        <Method name="setCuenta" returnType="void" visibility="public">
+          <Argument type="Cuenta" name="cuenta"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Saldo" package="utn.frd.borbotones.entities" visibility="public" xPosition="2120.0" yPosition="20.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="id" type="Long" visibility="private"/>
+        <Field name="saldo" type="float" visibility="package"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getId" returnType="Long" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="Long" name="id"/>
+        </Method>
+        <Method name="setSaldo" returnType="void" visibility="public">
+          <Argument type="float" name="valor"/>
+        </Method>
+        <Method name="getSaldo" returnType="float" visibility="public"/>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="TipoMovimiento" package="utn.frd.borbotones.entities" visibility="public" xPosition="20.0" yPosition="420.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="id" type="Integer" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="id"/>
+          <Argument type="String" name="nombre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="Integer" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Contacto" package="utn.frd.borbotones.entities" visibility="public" xPosition="320.0" yPosition="420.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="id" type="Integer" visibility="private"/>
+        <Field name="tipo" type="String" visibility="private"/>
+        <Field name="valor" type="String" visibility="private"/>
+        <Field name="actualizado" type="Date" visibility="private"/>
+        <Field name="idCliente" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="id"/>
+          <Argument type="String" name="tipo"/>
+          <Argument type="String" name="valor"/>
+          <Argument type="Date" name="actualizado"/>
+          <Argument type="int" name="idCliente"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="Integer" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="getTipo" returnType="String" visibility="public"/>
+        <Method name="setTipo" returnType="void" visibility="public">
+          <Argument type="String" name="tipo"/>
+        </Method>
+        <Method name="getValor" returnType="String" visibility="public"/>
+        <Method name="setValor" returnType="void" visibility="public">
+          <Argument type="String" name="valor"/>
+        </Method>
+        <Method name="getActualizado" returnType="Date" visibility="public"/>
+        <Method name="setActualizado" returnType="void" visibility="public">
+          <Argument type="Date" name="actualizado"/>
+        </Method>
+        <Method name="getIdCliente" returnType="int" visibility="public"/>
+        <Method name="setIdCliente" returnType="void" visibility="public">
+          <Argument type="int" name="idCliente"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Cliente" package="utn.frd.borbotones.entities" visibility="public" xPosition="620.0" yPosition="420.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="id" type="Long" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="cuil" type="int" visibility="private"/>
+        <Field name="cuentas" type="Set&lt;Cuenta&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Long" name="id"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="Long" name="id"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="int" name="cuil"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="Long" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="Long" name="id"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getCuil" returnType="int" visibility="public"/>
+        <Method name="setCuil" returnType="void" visibility="public">
+          <Argument type="int" name="cuil"/>
+        </Method>
+        <Method name="getCuentas" returnType="Set&lt;Cuenta&gt;" visibility="public"/>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="EstadoMovimiento" package="utn.frd.borbotones.entities" visibility="public" xPosition="920.0" yPosition="420.0">
+      <Fields>
+        <Field name="serialVersionUID" type="long" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="id" type="Integer" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="Integer" name="id"/>
+          <Argument type="String" name="nombre"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getId" returnType="Integer" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="Integer" name="id"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="hashCode" returnType="int" visibility="public"/>
+        <Method name="equals" returnType="boolean" visibility="public">
+          <Argument type="Object" name="object"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="MovimientoFacade" package="utn.frd.borbotones.sessions" visibility="public" xPosition="1220.0" yPosition="420.0">
+      <Fields>
+        <Field name="em" type="EntityManager" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getEntityManager" returnType="EntityManager" visibility="protected"/>
+        <Method name="findByCuenta" returnType="List&lt;Movimiento&gt;" visibility="public">
+          <Argument type="long" name="id"/>
+        </Method>
+        <Method name="findByTipo" returnType="List&lt;Movimiento&gt;" visibility="public">
+          <Argument type="long" name="id"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ContactoFacade" package="utn.frd.borbotones.sessions" visibility="public" xPosition="1520.0" yPosition="420.0">
+      <Fields>
+        <Field name="em" type="EntityManager" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getEntityManager" returnType="EntityManager" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="TipoMovimientoFacade" package="utn.frd.borbotones.sessions" visibility="public" xPosition="1820.0" yPosition="420.0">
+      <Fields>
+        <Field name="em" type="EntityManager" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getEntityManager" returnType="EntityManager" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="CuentaFacade" package="utn.frd.borbotones.sessions" visibility="public" xPosition="2120.0" yPosition="420.0">
+      <Fields>
+        <Field name="em" type="EntityManager" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getEntityManager" returnType="EntityManager" visibility="protected"/>
+        <Method name="findByCliente" returnType="List&lt;Cuenta&gt;" visibility="public">
+          <Argument type="long" name="id"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="AbstractFacade" package="utn.frd.borbotones.sessions" visibility="public" isAbstract="true" xPosition="20.0" yPosition="820.0">
+      <Fields>
+        <Field name="entityClass" type="Class&lt;T&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Class&lt;T&gt;" name="entityClass"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getEntityManager" returnType="EntityManager" visibility="protected" isAbstract="true"/>
+        <Method name="create" returnType="void" visibility="public">
+          <Argument type="T" name="entity"/>
+        </Method>
+        <Method name="edit" returnType="void" visibility="public">
+          <Argument type="T" name="entity"/>
+        </Method>
+        <Method name="remove" returnType="void" visibility="public">
+          <Argument type="T" name="entity"/>
+        </Method>
+        <Method name="find" returnType="T" visibility="public">
+          <Argument type="Object" name="id"/>
+        </Method>
+        <Method name="findAll" returnType="List&lt;T&gt;" visibility="public"/>
+        <Method name="findRange" returnType="List&lt;T&gt;" visibility="public">
+          <Argument type="int[]" name="range"/>
+        </Method>
+        <Method name="count" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ClienteFacade" package="utn.frd.borbotones.sessions" visibility="public" xPosition="320.0" yPosition="820.0">
+      <Fields>
+        <Field name="em" type="EntityManager" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getEntityManager" returnType="EntityManager" visibility="protected"/>
+      </Methods>
+    </Class>
+    <Class name="EstadoMovimientoFacade" package="utn.frd.borbotones.sessions" visibility="public" xPosition="620.0" yPosition="820.0">
+      <Fields>
+        <Field name="em" type="EntityManager" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getEntityManager" returnType="EntityManager" visibility="protected"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="cliente" source="utn.frd.borbotones.entities.Cuenta" target="utn.frd.borbotones.entities.Cliente" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="utn.frd.borbotones.sessions.CuentaFacade" target="utn.frd.borbotones.entities.Cuenta" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="movimientos" source="utn.frd.borbotones.entities.Cuenta" target="utn.frd.borbotones.entities.Movimiento" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Set&lt;Movimiento&gt;"/>
+    <UseRelation source="utn.frd.borbotones.sessions.MovimientoFacade" target="utn.frd.borbotones.entities.Movimiento" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="utn.frd.borbotones.rest.services.CuentaRest" target="utn.frd.borbotones.entities.Saldo" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="utn.frd.borbotones.rest.services.CuentaRest" target="utn.frd.borbotones.entities.Cuenta" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="utn.frd.borbotones.sessions.EstadoMovimientoFacade" target="utn.frd.borbotones.sessions.AbstractFacade"/>
+    <UseRelation source="utn.frd.borbotones.rest.services.EstadoMovimientoRest" target="utn.frd.borbotones.entities.Movimiento" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="ejbMovimientoFacade" source="utn.frd.borbotones.rest.services.EstadoMovimientoRest" target="utn.frd.borbotones.sessions.MovimientoFacade" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="utn.frd.borbotones.entities.Cuenta" target="utn.frd.borbotones.entities.Movimiento" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="cuentas" source="utn.frd.borbotones.entities.Cliente" target="utn.frd.borbotones.entities.Cuenta" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Set&lt;Cuenta&gt;"/>
+    <UseRelation source="utn.frd.borbotones.entities.Cuenta" target="utn.frd.borbotones.entities.Cliente" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="ejbClienteFacade" source="utn.frd.borbotones.rest.services.CuentaRest" target="utn.frd.borbotones.sessions.ClienteFacade" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="ejbClienteFacade" source="utn.frd.borbotones.rest.services.ClienteRest" target="utn.frd.borbotones.sessions.ClienteFacade" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="utn.frd.borbotones.sessions.CuentaFacade" target="utn.frd.borbotones.sessions.AbstractFacade"/>
+    <IsRelation name="is" source="utn.frd.borbotones.sessions.ClienteFacade" target="utn.frd.borbotones.sessions.AbstractFacade"/>
+    <UseRelation source="utn.frd.borbotones.rest.services.ClienteRest" target="utn.frd.borbotones.entities.Cliente" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="utn.frd.borbotones.entities.Movimiento" target="utn.frd.borbotones.entities.Cuenta" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="ejbCuentaFacade" source="utn.frd.borbotones.rest.services.MovimientosRest" target="utn.frd.borbotones.sessions.CuentaFacade" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="utn.frd.borbotones.entities.Cliente" target="utn.frd.borbotones.entities.Cuenta" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="utn.frd.borbotones.rest.services.MovimientosRest" target="utn.frd.borbotones.entities.Movimiento" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="ejbCuentaFacade" source="utn.frd.borbotones.rest.services.CuentaRest" target="utn.frd.borbotones.sessions.CuentaFacade" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="utn.frd.borbotones.sessions.ContactoFacade" target="utn.frd.borbotones.sessions.AbstractFacade"/>
+    <IsRelation name="is" source="utn.frd.borbotones.sessions.TipoMovimientoFacade" target="utn.frd.borbotones.sessions.AbstractFacade"/>
+    <HasRelation name="cuenta" source="utn.frd.borbotones.entities.Movimiento" target="utn.frd.borbotones.entities.Cuenta" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="ejbMovimientoFacade" source="utn.frd.borbotones.rest.services.MovimientosRest" target="utn.frd.borbotones.sessions.MovimientoFacade" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="utn.frd.borbotones.sessions.MovimientoFacade" target="utn.frd.borbotones.sessions.AbstractFacade"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
