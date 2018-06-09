@@ -3,21 +3,30 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+// A esta calse la he modificado
 package utn.frd.bunkerbank.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;//agruege esta libreria.
+import java.util.Set;//tambien.
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;//agregado
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import static javax.persistence.GenerationType.SEQUENCE;//
+import static javax.persistence.GenerationType.TABLE;//agregadas ambas esta y la anterior//
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.ManyToOne;//agregado
+import javax.persistence.JoinColumn;//agregado
+import javax.persistence.OneToMany;//agregado tambien//
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -38,7 +47,8 @@ public class Cuenta implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=TABLE)
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
@@ -51,10 +61,16 @@ public class Cuenta implements Serializable {
     @Column(name = "apertura")
     @Temporal(TemporalType.TIMESTAMP)
     private Date apertura;
-    @Basic(optional = false)
     @NotNull
-    @Column(name = "id_cliente")
-    private int idCliente;
+    @ManyToOne
+    @JoinColumn(name="id_cliente")
+    private Cliente cliente;  
+    @OneToMany(targetEntity=Movimiento.class,mappedBy="cuenta")
+    private Set<Movimiento> movimientos;
+    //@Basic(optional = false)
+    //@NotNull
+    //@Column(name = "id_cliente")
+    //private int idCliente;
 
     public Cuenta() {
     }
@@ -63,12 +79,17 @@ public class Cuenta implements Serializable {
         this.id = id;
     }
 
-    public Cuenta(Integer id, long numero, Date apertura, int idCliente) {
+    public Cuenta(Integer id, long numero, Date apertura, Cliente cliente) {
         this.id = id;
         this.numero = numero;
         this.apertura = apertura;
-        this.idCliente = idCliente;
+        this.cliente = cliente;//cambie id cliente por cliente
     }
+    
+    public Cuenta(long numero,Integer id){
+        this.numero=numero;
+        this.id = id;
+    }//agregue esta función
 
     public Integer getId() {
         return id;
@@ -93,13 +114,41 @@ public class Cuenta implements Serializable {
     public void setApertura(Date apertura) {
         this.apertura = apertura;
     }
-
-    public int getIdCliente() {
-        return idCliente;
+    
+    public Cliente getCuenta() {//agregado tambien obtengo cuenta del cliente
+        return cliente;
+    }
+    
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+    public float getSaldo(){///tambien agregado
+        float saldo;
+        saldo = 0;
+        for(Movimiento element : movimientos){
+            if(element.getTipo() == 1){
+                saldo += element.getImporte();
+            }
+            else{
+                saldo -= element.getImporte();
+            }
+            
+        }
+        return saldo;
     }
 
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
+    //public int getIdCliente() {
+    //    return idCliente;
+    //}
+    public Set<Movimiento> getMovimientos(){//agregado
+        return movimientos;
+    }
+
+    //public void setIdCliente(int idCliente) {
+      //  this.idCliente = idCliente;
+    //}
+    public void setMovimientos(Set<Movimiento> movimientos){//agregado
+        this.movimientos = movimientos;
     }
 
     @Override

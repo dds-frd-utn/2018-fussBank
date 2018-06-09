@@ -5,6 +5,7 @@
  */
 package utn.frd.bunkerbank.entities.sessions;
 
+import java.util.List;//agregada lista
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -27,6 +28,11 @@ public class CuentaFacade extends AbstractFacade<Cuenta> {
 
     public CuentaFacade() {
         super(Cuenta.class);
+    }
+    public List<Cuenta> findByCliente(long id){//funcion por cliente
+        return em.createNamedQuery("Cuenta.findByCliente",Cuenta.class)
+                .setParameter("id", id)
+                .getResultList();
     }
     
 }
