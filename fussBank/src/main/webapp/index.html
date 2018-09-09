@@ -1,32 +1,20 @@
+<!--Trabajo Practico-->
+
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Oscar Presenta</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    </head>
-    <body>
-    <center>
-        <h1>Banco FUSSBANK ® 
-            <p>
-                
-            </p>
-            ¡Bienvenido!</h1>
-        <img src="fussbankphoto.jpg">
+<head>
+	<title>Oscar Presenta</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="code.js"></script>
+</head>
+<body>
+    <h1>Banco FUSSBANK</h1>
+    <br><br><br><br>
+    <button id="listar" class="btn btn-success"> Fussbank Listar Cuenta </button>
+    <button id="extracciones" class="btn btn-warning"> Fussbank Extracciones </button>
+    <ul id="lista-cuentas" class="hide"></ul> 
+    <ul id="extraccion-cuentas" class="hide"></ul>
     
-        <p>
-           En los siguientes links, podra ingresar al listado de sus cuentas y extraer dinero 
-        </p>
-        <a href="http://localhost:8080/fussBank/rest/cliente"><img src="listbutton.png"</a>
-        
-        <p>
-            
-        </p>
-        
-        <a href="http://localhost:8080/fussBank/rest/cliente"><img src="extbutton.png"</a>
-        <p>
-            
-        </p>
-        
-    </center>
-    </body>
+</body>
 </html>

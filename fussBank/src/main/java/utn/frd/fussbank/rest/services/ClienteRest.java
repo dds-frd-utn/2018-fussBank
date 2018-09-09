@@ -21,7 +21,7 @@ import utn.frd.fussbank.sessions.ClienteFacade;
 
 /**
  *
- * @author Raquel
+ * @author Oscar
  */
 @Path("/cliente")
 public class ClienteRest {
